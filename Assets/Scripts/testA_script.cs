@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class testA_script : MonoBehaviour
 {
     [SerializeField] passiveMoneyTimer_script passiveMoneyTimerBar;
 
+
+
     public string charName;
     public int charPassiveMoney;
+    public TextMeshProUGUI charPassiveMoneyText;
+    public passiveMoneyTextUpAnimation_script passiveMoneyTextUpAnimationUp;
+    public GameObject charPassiveMoneyObject;
+    public bool sendPassiveMoneyTextUp = false;
 
     private Rigidbody2D thisCharRB;
     private Animator thisCharAnim;
@@ -32,10 +39,11 @@ public class testA_script : MonoBehaviour
         thisCharSpriteR = GetComponent<SpriteRenderer>();
 
         passiveMoneyTimerBar = GetComponentInChildren<passiveMoneyTimer_script>();
-
+        charPassiveMoneyText = GetComponentInChildren<TextMeshProUGUI>();
+        passiveMoneyTextUpAnimationUp = GetComponentInChildren<passiveMoneyTextUpAnimation_script>();
 
         decisionTimeCount = Random.Range(charDecisionTime.x, charDecisionTime.y);
-        passiveMoneyTimeCount = 30;
+        passiveMoneyTimeCount = 5;
 
 
         AutoGenerateStats();
@@ -77,14 +85,25 @@ public class testA_script : MonoBehaviour
         if(passiveMoneyTimeCount > 0)
         {
             passiveMoneyTimeCount -= Time.deltaTime;
-            int tempMaxPassiveMoneyTimeCount = 30;
+            int tempMaxPassiveMoneyTimeCount = 5;
             passiveMoneyTimerBar.UpdatePassiveMoneyTimeBar(passiveMoneyTimeCount, tempMaxPassiveMoneyTimeCount);
         }
         else
         {
+            passiveMoneyTextUpAnimationUp.PlayClipPassiveMoney();
             gameManager_script.Instance.AddPlayerMoney(charPassiveMoney);
-            passiveMoneyTimeCount = 30;
+            passiveMoneyTimeCount = 5;
         }
+
+        // if(sendPassiveMoneyTextUp)
+        // {
+        //     charPassiveMoneyObject.transform.position += new Vector3(transform.position.x, 0.025f, 9);
+        //     if(charPassiveMoneyObject.transform.position.y > transform.position.y + 0.25)
+        //     {
+        //         sendPassiveMoneyTextUp = false;
+        //         charPassiveMoneyObject.transform.position = new Vector3(transform.position.x, transform.position.y, 9);
+        //     }
+        // }
 
     }
 
@@ -93,6 +112,7 @@ public class testA_script : MonoBehaviour
         AutoPickCharColorCommon();
         AutoPickCharName();
         charPassiveMoney = Random.Range(1, 6);
+        charPassiveMoneyText.text = "$" + charPassiveMoney.ToString();
     }
 
     void ChooseMoveDirection()
