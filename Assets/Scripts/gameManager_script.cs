@@ -1,0 +1,80 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class gameManager_script : MonoBehaviour
+{
+    public static gameManager_script Instance;
+
+    public int playerTotalMoney;
+    public TextMeshProUGUI playerTotalMoneyText;
+
+    public bool sellMenuToggle; 
+
+    public GameObject testCharA;
+    public GameObject sellMenu;
+
+    
+    //public GameObject tempChar;
+
+    public List<GameObject> totalCharList = new List<GameObject>();
+
+    void Start()
+    {
+        Instance = this;
+        sellMenu.SetActive(false);
+        sellMenuToggle = false;
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.W) && !sellMenuToggle)
+        {
+            SpawnChar();
+        }
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            PauseMenuToggle();
+        }
+
+        playerTotalMoneyText.text = "$" + playerTotalMoney.ToString();
+    }
+
+    public void SpawnChar()
+    {
+        int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
+        int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
+
+        GameObject tempChar;
+        tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
+        totalCharList.Add(tempChar);
+
+    }
+
+    public void PauseMenuToggle()
+    {
+        if(!sellMenuToggle)
+        {
+            sellMenu.SetActive(true);
+            sellMenuToggle = true;
+        }
+        else
+        {
+            sellMenu.SetActive(false);
+            sellMenuToggle = false;
+        }
+    }
+
+    public void AddPlayerMoney(int x)
+    {
+        playerTotalMoney += x;
+    }
+}
+
+//TODO
+// gotta fix up this menu system but got a decent system somewhat going.
+    // eventually change testCharA spawn to an actual character
