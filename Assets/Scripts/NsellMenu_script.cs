@@ -79,6 +79,13 @@ public class NsellMenu_script : MonoBehaviour
             CurrentlySelectedSellMenuList(userNum);
             userNumToTotalNum.text = totalNum.ToString() + "/" + gameManager_script.Instance.totalCharList.Count.ToString();
 
+            if(Input.GetKeyDown(KeyCode.O) && gameManager_script.Instance.sellMenuToggle)
+            {
+                Destroy(transform.GetChild(userNum).gameObject);
+                gameManager_script.Instance.totalCharList[userNum-1+(numPage*5)].GetComponent<testA_script>().DeleteCharacterA();
+                gameManager_script.Instance.PauseMenuToggle();
+            }
+
         }
         else
         {

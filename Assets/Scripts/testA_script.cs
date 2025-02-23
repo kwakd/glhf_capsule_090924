@@ -214,4 +214,15 @@ public class testA_script : MonoBehaviour
         tempScale.x *= -1;
         transform.localScale = tempScale;
     }
+
+    public void DeleteCharacterA()
+    {
+        gameManager_script.Instance.totalCharList.Remove(this.gameObject);
+        Object.Destroy(this.gameObject);
+    }
+    
+    void OnDisable()
+    {
+        gameManager_script.Instance.playerTotalMoney += charPassiveMoney;
+    }
 }
