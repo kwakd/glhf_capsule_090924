@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class testA_script : MonoBehaviour
 {
+    [SerializeField] passiveMoneyTimer_script passiveMoneyTimerBar;
+
     public string charName;
     public int charPassiveMoney;
 
@@ -28,6 +30,9 @@ public class testA_script : MonoBehaviour
         thisCharRB = GetComponent<Rigidbody2D>();
         thisCharAnim = GetComponent<Animator>();
         thisCharSpriteR = GetComponent<SpriteRenderer>();
+
+        passiveMoneyTimerBar = GetComponentInChildren<passiveMoneyTimer_script>();
+
 
         decisionTimeCount = Random.Range(charDecisionTime.x, charDecisionTime.y);
         passiveMoneyTimeCount = 30;
@@ -72,6 +77,8 @@ public class testA_script : MonoBehaviour
         if(passiveMoneyTimeCount > 0)
         {
             passiveMoneyTimeCount -= Time.deltaTime;
+            int tempMaxPassiveMoneyTimeCount = 30;
+            passiveMoneyTimerBar.UpdatePassiveMoneyTimeBar(passiveMoneyTimeCount, tempMaxPassiveMoneyTimeCount);
         }
         else
         {
