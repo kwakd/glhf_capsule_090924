@@ -31,7 +31,14 @@ public class gameManager_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W) && !sellMenuToggle)
+        if(Input.GetKeyDown(KeyCode.W) && !sellMenuToggle && playerTotalMoney >= 100)
+        {
+            playerTotalMoney -= 100;
+            SpawnChar();
+        }
+
+        // devkey to spawn unit
+        if(Input.GetKeyDown(KeyCode.Q) && !sellMenuToggle)
         {
             SpawnChar();
         }
