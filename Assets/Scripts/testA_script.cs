@@ -31,6 +31,8 @@ public class testA_script : MonoBehaviour
     private bool charDanceAnim1Bool = false;
     private bool charDanceAnim2Bool = false;
 
+    private Color [] randomColorListArray = {Color.red, Color.blue, Color.cyan, Color.gray, Color.green, Color.grey, Color.magenta, Color.red, Color.white, Color.yellow};
+
     // Start is called before the first frame update
     void Start()
     {
@@ -227,10 +229,15 @@ public class testA_script : MonoBehaviour
 
     void AutoPickCharColorCommon()
     {
-        int tempIntR = Random.Range(0, 256);
-        int tempIntG = Random.Range(0, 256);
-        int tempIntB = Random.Range(0, 256);
-        thisCharSpriteR.color = new Color32((byte)tempIntR, (byte)tempIntG, (byte)tempIntB, 255);
+        //new method with materials
+        int tempNumInt = Random.Range(0, randomColorListArray.Length);
+        thisCharSpriteR.material.color = randomColorListArray[tempNumInt];
+
+        //old method
+        // int tempIntR = Random.Range(0, 256);
+        // int tempIntG = Random.Range(0, 256);
+        // int tempIntB = Random.Range(0, 256);
+        // thisCharSpriteR.material = new Color32((byte)tempIntR, (byte)tempIntG, (byte)tempIntB, 255);
     }
 
 

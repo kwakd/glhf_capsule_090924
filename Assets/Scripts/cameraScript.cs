@@ -18,7 +18,8 @@ public class cameraScript : MonoBehaviour
     void Start()
     {
         gameManagerScript = FindObjectOfType<gameManager_script>();
-        virtualCameraZoomFloat = 5.5f;
+        virtualCameraZoomFloat = 4.5f;
+        virtualCamera.m_Lens.OrthographicSize = virtualCameraZoomFloat;
         virtualCameraZoomFloatText.text = "Zoom: " + virtualCameraZoomFloat.ToString();
         
     }
