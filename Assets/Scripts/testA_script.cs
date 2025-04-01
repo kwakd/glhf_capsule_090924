@@ -11,6 +11,7 @@ public class testA_script : MonoBehaviour
 
     public string charName;
     public int charPassiveMoney;
+    public int charPassiveMoneyIntRandomNumChecker;
     public TextMeshProUGUI charPassiveMoneyText;
     public passiveMoneyTextUpAnimation_script passiveMoneyTextUpAnimationUp;
     public GameObject charPassiveMoneyObject;
@@ -21,10 +22,12 @@ public class testA_script : MonoBehaviour
     private SpriteRenderer thisCharSpriteR;
 
     private Vector2 charDecisionTime = new Vector2(1, 10);
+    private Vector2 passiveMoneyTime = new Vector2(5, 10);
     private Vector2 charLastMoveDirection;
     private float decisionTimeCount;
     private float passiveMoneyTimeCount;
     //private float charMoveDistance;
+    private int passiveMoneyTimeCountOriginal;
     private int charStatusDescision;
     private int charStatusDescisionSpecial;
     private bool charFacingRight = true;
@@ -45,8 +48,8 @@ public class testA_script : MonoBehaviour
         passiveMoneyTextUpAnimationUp = GetComponentInChildren<passiveMoneyTextUpAnimation_script>();
 
         decisionTimeCount = Random.Range(charDecisionTime.x, charDecisionTime.y);
-        passiveMoneyTimeCount = 5;
-
+        passiveMoneyTimeCount = Random.Range(passiveMoneyTime.x, passiveMoneyTime.y);
+        passiveMoneyTimeCountOriginal = (int)passiveMoneyTimeCount;
 
         AutoGenerateStats();
         //decisionTimeCount = Random.Range(charDecisionTime.x, charDecisionTime.y);
@@ -68,6 +71,7 @@ public class testA_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // characters descision counter
         if (decisionTimeCount > 0) 
         {
             decisionTimeCount -= Time.deltaTime;
@@ -82,20 +86,22 @@ public class testA_script : MonoBehaviour
             ChooseMoveDirection();
             
         }
-        CharAnimate();
-
+        
+        // characters passive money income to the player
         if(passiveMoneyTimeCount > 0)
         {
             passiveMoneyTimeCount -= Time.deltaTime;
-            int tempMaxPassiveMoneyTimeCount = 5;
+            int tempMaxPassiveMoneyTimeCount = passiveMoneyTimeCountOriginal;
             passiveMoneyTimerBar.UpdatePassiveMoneyTimeBar(passiveMoneyTimeCount, tempMaxPassiveMoneyTimeCount);
         }
         else
         {
             passiveMoneyTextUpAnimationUp.PlayClipPassiveMoney();
             gameManager_script.Instance.AddPlayerMoney(charPassiveMoney);
-            passiveMoneyTimeCount = 5;
+            passiveMoneyTimeCount = (float)passiveMoneyTimeCountOriginal;
         }
+
+        CharAnimate();
 
         // if(sendPassiveMoneyTextUp)
         // {
@@ -113,7 +119,8 @@ public class testA_script : MonoBehaviour
     {
         AutoPickCharColorCommon();
         AutoPickCharName();
-        charPassiveMoney = Random.Range(1, 6);
+        charPassiveMoneyIntRandomNumChecker = Random.Range(1, 6);
+        charPassiveMoney = charPassiveMoneyIntRandomNumChecker + passiveMoneyTimeCountOriginal;
         charPassiveMoneyText.text = "$" + charPassiveMoney.ToString();
     }
 

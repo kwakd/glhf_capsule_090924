@@ -233,6 +233,7 @@ MonoBehaviour:
   passiveMoneyTimerBar: {fileID: 0}
   charName: 
   charPassiveMoney: 0
+  charPassiveMoneyIntRandomNumChecker: 0
   charPassiveMoneyText: {fileID: 40999285735409726}
   passiveMoneyTextUpAnimationUp: {fileID: 0}
   charPassiveMoneyObject: {fileID: 8798106664440714711}
@@ -660,7 +661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $1
+  m_text: $100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -723,7 +724,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -11.837021, y: 0, z: -12.150168, w: -0.22836727}
+  m_margin: {x: -76.38891, y: 0, z: -80.20184, w: -0.22836727}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
