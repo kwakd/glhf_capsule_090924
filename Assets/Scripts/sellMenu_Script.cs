@@ -36,8 +36,11 @@ public class sellMenu_Script : MonoBehaviour
                 g = Instantiate(sellTemplateCopy, transform);
 
                 //g.transform.GetChild(0).GetComponent<Image>().sprite = defaultTestCharImage;
-                g.transform.GetChild(0).GetComponent<Image>().color = gameManagerScript.totalCharList[i-1].GetComponent<SpriteRenderer>().color;
-
+                //Changes Sprite
+                g.transform.GetChild(0).GetComponent<Image>().material = gameManagerScript.totalCharList[i-1].GetComponent<SpriteRenderer>().material;
+                //Changes Sprite Material
+                // g.transform.GetChild(0).GetComponent<Image>().color = gameManagerScript.totalCharList[i-1].GetComponent<SpriteRenderer>().color;
+                //Changes
                 g.transform.GetChild(1).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i-1].GetComponent<testA_script>().charName;
 
                 
