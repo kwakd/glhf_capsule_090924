@@ -175,6 +175,8 @@ public class NsellMenu_script : MonoBehaviour
 
                 g.transform.GetChild(2).GetComponent<TMP_Text>().text = "$" + gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().charPassiveMoney.ToString();
 
+                g.transform.GetChild(3).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().passiveMoneyTimeCountOriginal.ToString();
+
                 transform.GetChild(i+1).gameObject.SetActive(true);
             }
                
@@ -193,6 +195,8 @@ public class NsellMenu_script : MonoBehaviour
 
                 g.transform.GetChild(2).GetComponent<TMP_Text>().text = "$" + gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().charPassiveMoney.ToString();
 
+                g.transform.GetChild(3).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().passiveMoneyTimeCountOriginal.ToString();
+
                 transform.GetChild(i+1).gameObject.SetActive(true);
             }   
         }
@@ -208,6 +212,8 @@ public class NsellMenu_script : MonoBehaviour
                 g.transform.GetChild(1).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().charName;
 
                 g.transform.GetChild(2).GetComponent<TMP_Text>().text = "$" + gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().charPassiveMoney.ToString();
+
+                g.transform.GetChild(3).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().passiveMoneyTimeCountOriginal.ToString();
 
                 transform.GetChild(i+1).gameObject.SetActive(true);
             }   

@@ -12,6 +12,7 @@ public class testA_script : MonoBehaviour
     public string charName;
     public int charPassiveMoney;
     public int charPassiveMoneyIntRandomNumChecker;
+    public int passiveMoneyTimeCountOriginal;
     public TextMeshProUGUI charPassiveMoneyText;
     public passiveMoneyTextUpAnimation_script passiveMoneyTextUpAnimationUp;
     public GameObject charPassiveMoneyObject;
@@ -22,12 +23,10 @@ public class testA_script : MonoBehaviour
     private SpriteRenderer thisCharSpriteR;
 
     private Vector2 charDecisionTime = new Vector2(1, 10);
-    private Vector2 passiveMoneyTime = new Vector2(5, 10);
+    private Vector2 passiveMoneyTime = new Vector2(50, 60); //change to 50,60 only at 5-6 for testing purposes
     private Vector2 charLastMoveDirection;
     private float decisionTimeCount;
     private float passiveMoneyTimeCount;
-    //private float charMoveDistance;
-    private int passiveMoneyTimeCountOriginal;
     private int charStatusDescision;
     private int charStatusDescisionSpecial;
     private bool charFacingRight = true;
