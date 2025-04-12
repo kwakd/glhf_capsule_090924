@@ -10,9 +10,11 @@ public class gameManager_script : MonoBehaviour
     public int playerTotalMoney;
     public TextMeshProUGUI playerTotalMoneyText;
 
-    public bool sellMenuToggle; 
+    public bool sellMenuToggle;
+    public bool isPlayerTypingName = false; 
 
     public GameObject testCharA;
+    public GameObject testCharA_CHAO;
     public GameObject sellMenu;
 
     
@@ -43,7 +45,7 @@ public class gameManager_script : MonoBehaviour
             SpawnChar();
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.P) && !isPlayerTypingName)
         {
             PauseMenuToggle();
         }
@@ -57,6 +59,7 @@ public class gameManager_script : MonoBehaviour
         int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
 
         GameObject tempChar;
+        //tempChar = Instantiate(testCharA_CHAO, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA_CHAO.transform.rotation);
         tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
         totalCharList.Add(tempChar);
 
