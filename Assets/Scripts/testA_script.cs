@@ -118,9 +118,33 @@ public class testA_script : MonoBehaviour
     {
         AutoPickCharColorCommon();
         AutoPickCharName();
-        charPassiveMoneyIntRandomNumChecker = Random.Range(1, 6);
-        charPassiveMoney = charPassiveMoneyIntRandomNumChecker + passiveMoneyTimeCountOriginal;
+        AutoPickCharPassiveMoney();
         charPassiveMoneyText.text = "$" + charPassiveMoney.ToString();
+    }
+
+    void AutoPickCharPassiveMoney()
+    {
+        if(this.tag == "commonTier")
+        {
+            charPassiveMoneyIntRandomNumChecker = Random.Range(1, 6);
+            charPassiveMoney = charPassiveMoneyIntRandomNumChecker + passiveMoneyTimeCountOriginal;
+        }
+        else if(this.tag == "uncommonTier")
+        {
+            charPassiveMoneyIntRandomNumChecker = Random.Range(6, 26);
+            charPassiveMoney = charPassiveMoneyIntRandomNumChecker + passiveMoneyTimeCountOriginal;
+        }
+        else if(this.tag == "epicTier")
+        {
+            charPassiveMoneyIntRandomNumChecker = Random.Range(50, 76);
+            charPassiveMoney = charPassiveMoneyIntRandomNumChecker + passiveMoneyTimeCountOriginal;
+        }
+        else if(this.tag == "legendaryTier")
+        {
+            charPassiveMoneyIntRandomNumChecker = Random.Range(100, 201);
+            charPassiveMoney = charPassiveMoneyIntRandomNumChecker + passiveMoneyTimeCountOriginal;
+        }
+
     }
 
     void ChooseMoveDirection()
@@ -139,54 +163,34 @@ public class testA_script : MonoBehaviour
                 case 0:
                 //Debug.Log("fish will go RIGHT");
                 thisCharRB.velocity = new Vector2(transform.localScale.x * charMoveDistance, 0);
-                // charLastMoveDirection.x = thisCharRB.velocity.x;
-                // charLastMoveDirection.y = thisCharRB.velocity.y;
-                //Debug.Log("000" + thisCharRB.velocity);
                 break;
                 case 1:
                     //Debug.Log("fish will go LEFT");
                     thisCharRB.velocity = new Vector2(transform.localScale.x * charMoveDistance * -1, 0);
-                    // charLastMoveDirection.x = thisCharRB.velocity.x;
-                    // charLastMoveDirection.y = thisCharRB.velocity.y;
-                    //Debug.Log("111" + thisCharRB.velocity.x);
                     break;
                 case 2:
                     //Debug.Log("fish will go UP");
                     thisCharRB.velocity = new Vector2(0, transform.localScale.y * charMoveDistance);
-                    // charLastMoveDirection.x = thisCharRB.velocity.x;
-                    // charLastMoveDirection.y = thisCharRB.velocity.y;
-                    //Debug.Log("222" + thisCharRB.velocity);
                     break;
                 case 3:
                     //Debug.Log("fish will go DOWN");
                     thisCharRB.velocity = new Vector2(0, transform.localScale.y * -charMoveDistance);
-                    // charLastMoveDirection.x = thisCharRB.velocity.x;
-                    // charLastMoveDirection.y = thisCharRB.velocity.y;
-                    //Debug.Log("333" + thisCharRB.velocity);
                     break;
                 case 4:
                     //Debug.Log("fish will go UP RIGHT");
                     thisCharRB.velocity = new Vector2(transform.localScale.x * charMoveDistance, transform.localScale.y * charMoveDistance);
-                    // charLastMoveDirection.x = thisCharRB.velocity.x;
-                    // charLastMoveDirection.y = thisCharRB.velocity.y; 
                     break;
                 case 5:
                     //Debug.Log("fish will go UP LEFT");
                     thisCharRB.velocity = new Vector2(transform.localScale.x * charMoveDistance * -1, transform.localScale.y * charMoveDistance);
-                    // charLastMoveDirection.x = thisCharRB.velocity.x;
-                    // charLastMoveDirection.y = thisCharRB.velocity.y;
                     break;  
                 case 6:
                     //Debug.Log("fish will go DOWN RIGHT");
                     thisCharRB.velocity = new Vector2(transform.localScale.x * charMoveDistance, transform.localScale.y * -charMoveDistance);
-                    // charLastMoveDirection.x = thisCharRB.velocity.x;
-                    // charLastMoveDirection.y = thisCharRB.velocity.y;
                     break;  
                 case 7:
                     //Debug.Log("fish will go DOWN LEFT");
                     thisCharRB.velocity = new Vector2(transform.localScale.x * charMoveDistance * -1, transform.localScale.y * -charMoveDistance);
-                    // charLastMoveDirection.x = thisCharRB.velocity.x;
-                    // charLastMoveDirection.y = thisCharRB.velocity.y;
                     break;
                 default:
                     break;
@@ -200,7 +204,16 @@ public class testA_script : MonoBehaviour
         // SPECIAL ACTION
         else if(charStatusDescision >= 9 && charStatusDescision <= 9)
         {
-            charStatusDescisionSpecial = Random.Range(0, 2);
+            if(this.tag == "legendaryTier")
+            {
+                Debug.Log("Legendary TIER HIT DEBUG");
+                charStatusDescisionSpecial = Random.Range(0, 3);
+            }
+            else
+            {
+                charStatusDescisionSpecial = Random.Range(0, 2);
+            }
+
             switch(charStatusDescisionSpecial)
             {
                 case 0:
@@ -211,6 +224,11 @@ public class testA_script : MonoBehaviour
                     thisCharRB.velocity = new Vector2(0, 0);
                     charDanceAnim2Bool = true;
                     break;
+                case 2:
+                    // legendary only action WIP
+                    // thisCharRB.velocity = new Vector2(0, 0);
+                    // charDanceAnim2Bool = true;
+                    break;    
                 default:
                     break;
             }
@@ -225,12 +243,7 @@ public class testA_script : MonoBehaviour
         thisCharAnim.SetFloat("charMoveMagnitude", thisCharRB.velocity.magnitude);
         thisCharAnim.SetBool("charDanceAnim1", charDanceAnim1Bool);
         thisCharAnim.SetBool("charDanceAnim2", charDanceAnim2Bool);
-    }
-
-    void AutoPickCharName()
-    {
-        int tempNumInt = Random.Range(0,101);
-        charName = "character" + tempNumInt.ToString();
+        //thisCharAnim.SetBool("charDanceAnim3", charDanceAnim3Bool); WIP legendary
     }
 
     void AutoPickCharColorCommon()
@@ -245,6 +258,15 @@ public class testA_script : MonoBehaviour
         // int tempIntB = Random.Range(0, 256);
         // thisCharSpriteR.material = new Color32((byte)tempIntR, (byte)tempIntG, (byte)tempIntB, 255);
     }
+
+    void AutoPickCharName()
+    {
+        int tempNumInt = Random.Range(0,101);
+        charName = "character" + tempNumInt.ToString();
+    }
+
+    
+
 
 
     void FlipSprite()

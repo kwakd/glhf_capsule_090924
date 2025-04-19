@@ -14,13 +14,14 @@ public class gameManager_script : MonoBehaviour
     public bool isPlayerTypingName = false; 
 
     public GameObject testCharA;
-    public GameObject testCharA_CHAO;
     public GameObject sellMenu;
 
     
     //public GameObject tempChar;
 
     public List<GameObject> totalCharList = new List<GameObject>();
+    public List<GameObject> totalEpicCharList = new List<GameObject>();
+    public List<GameObject> totalLegendaryCharList = new List<GameObject>();
 
     void Start()
     {
@@ -44,6 +45,11 @@ public class gameManager_script : MonoBehaviour
         {
             SpawnChar();
         }
+        //devkey to spawn better units
+        if(Input.GetKeyDown(KeyCode.E) && !sellMenuToggle)
+        {
+            DevSpawnChar();
+        }
 
         if(Input.GetKeyDown(KeyCode.P) && !isPlayerTypingName)
         {
@@ -59,9 +65,59 @@ public class gameManager_script : MonoBehaviour
         int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
 
         GameObject tempChar;
-        //tempChar = Instantiate(testCharA_CHAO, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA_CHAO.transform.rotation);
-        tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
-        totalCharList.Add(tempChar);
+        int tempInt = Random.Range(0, 101);
+        //common
+        if(tempInt >= 0 && tempInt <= 45)
+        {
+            tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
+            totalCharList.Add(tempChar);
+        }
+        //uncommon
+        else if(tempInt > 45 && tempInt <= 78)
+        {
+            Debug.Log("WIP SHOULD HAVE SPAWNNED UNCOMMON");
+            tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
+            totalCharList.Add(tempChar);
+        }
+        //epic
+        else if(tempInt > 78 && tempInt <= 98)
+        {
+            int temptempInt = Random.Range(0,totalEpicCharList.Count);
+            tempChar = Instantiate(totalEpicCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalEpicCharList[temptempInt].transform.rotation);
+            totalCharList.Add(tempChar);
+        }
+        //legendary
+        else if(tempInt > 98 && tempInt <= 100)
+        {
+            int temptempInt = Random.Range(0,totalLegendaryCharList.Count);
+            tempChar = Instantiate(totalLegendaryCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalLegendaryCharList[temptempInt].transform.rotation);
+            totalCharList.Add(tempChar);
+        }
+
+    }
+
+    public void DevSpawnChar()
+    {
+        int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
+        int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
+
+        GameObject tempChar;
+        int tempInt = Random.Range(0, 2); //0, 1
+
+        //epic
+        if(tempInt == 0)
+        {
+            int temptempInt = Random.Range(0,totalEpicCharList.Count);
+            tempChar = Instantiate(totalEpicCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalEpicCharList[temptempInt].transform.rotation);
+            totalCharList.Add(tempChar);
+        }
+        //legendary
+        else
+        {
+            int temptempInt = Random.Range(0,totalLegendaryCharList.Count);
+            tempChar = Instantiate(totalLegendaryCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalLegendaryCharList[temptempInt].transform.rotation);
+            totalCharList.Add(tempChar);
+        }
 
     }
 

@@ -187,6 +187,7 @@ public class NsellMenu_script : MonoBehaviour
             {
                 g = Instantiate(sellTemplateCopy, transform);
 
+                g.transform.GetChild(0).GetComponent<Image>().sprite = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<SpriteRenderer>().sprite;
                 g.transform.GetChild(0).GetComponent<Image>().material = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<SpriteRenderer>().material;
 
                 g.transform.GetChild(1).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().charName;
@@ -207,6 +208,7 @@ public class NsellMenu_script : MonoBehaviour
             {
                 g = Instantiate(sellTemplateCopy, transform);
 
+                g.transform.GetChild(0).GetComponent<Image>().sprite = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<SpriteRenderer>().sprite;
                 g.transform.GetChild(0).GetComponent<Image>().material = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<SpriteRenderer>().material;
 
                 g.transform.GetChild(1).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().charName;
@@ -225,6 +227,7 @@ public class NsellMenu_script : MonoBehaviour
             {
                 g = Instantiate(sellTemplateCopy, transform);
 
+                g.transform.GetChild(0).GetComponent<Image>().sprite = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<SpriteRenderer>().sprite;
                 g.transform.GetChild(0).GetComponent<Image>().material = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<SpriteRenderer>().material;
 
                 g.transform.GetChild(1).GetComponent<TMP_Text>().text = gameManagerScript.totalCharList[i + (numPage * 5)].GetComponent<testA_script>().charName;

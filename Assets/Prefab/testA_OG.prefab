@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 2305138297892573153}
   m_Layer: 9
   m_Name: testA_OG
-  m_TagString: Untagged
+  m_TagString: commonTier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,6 +234,7 @@ MonoBehaviour:
   charName: 
   charPassiveMoney: 0
   charPassiveMoneyIntRandomNumChecker: 0
+  passiveMoneyTimeCountOriginal: 0
   charPassiveMoneyText: {fileID: 40999285735409726}
   passiveMoneyTextUpAnimationUp: {fileID: 0}
   charPassiveMoneyObject: {fileID: 8798106664440714711}

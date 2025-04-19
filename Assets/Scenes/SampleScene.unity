@@ -224,7 +224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -525.81}
+  m_AnchoredPosition: {x: -100, y: -512}
   m_SizeDelta: {x: 200, y: 148.3774}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69126763
@@ -253,10 +253,15 @@ MonoBehaviour:
 
     Q = Spawn CharA (devkey)
 
-    W =
-    Buy CharA
+    E =
+    Spawn CharA Better (dev)
 
-    Z = Camera Zoom'
+    W = Buy CharA
+
+    Z = Camera Zoom
+
+    I = Change
+    CharA name (menu)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -283,8 +288,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -671,9 +676,13 @@ MonoBehaviour:
   sellMenuToggle: 0
   isPlayerTypingName: 0
   testCharA: {fileID: 2221958309131308856, guid: fcd30ccb3c14f6f4aabfde8fe68a813f, type: 3}
-  testCharA_CHAO: {fileID: 2221958309131308856, guid: 918f838487beacd4288b5e6c3600c2c7, type: 3}
   sellMenu: {fileID: 1436591300}
   totalCharList: []
+  totalEpicCharList:
+  - {fileID: 2221958309131308856, guid: b9e2eecbd07458649b351c89f1a898a8, type: 3}
+  totalLegendaryCharList:
+  - {fileID: 2221958309131308856, guid: cfb84a9564b0bf1409ec1813dfa6b34d, type: 3}
+  - {fileID: 2221958309131308856, guid: 918f838487beacd4288b5e6c3600c2c7, type: 3}
 --- !u!4 &426077130
 Transform:
   m_ObjectHideFlags: 0
