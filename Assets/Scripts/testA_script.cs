@@ -116,7 +116,16 @@ public class testA_script : MonoBehaviour
 
     void AutoGenerateStats()
     {
-        AutoPickCharColorCommon();
+        int tempInt = Random.Range(0, 101);
+        if((this.tag == "legendaryTier" || this.tag == "epicTier") && tempInt >= 95)
+        {
+            AutoPickCharColorCommon();
+            // potentially make this version also give more money
+        }
+        else if((this.tag == "commonTier" || this.tag == "uncommonTier"))
+        {
+            AutoPickCharColorCommon();
+        }
         AutoPickCharName();
         AutoPickCharPassiveMoney();
         charPassiveMoneyText.text = "$" + charPassiveMoney.ToString();
@@ -250,8 +259,9 @@ public class testA_script : MonoBehaviour
     {
         //new method with materials
         int tempNumInt = Random.Range(0, randomColorListArray.Length);
+        
         thisCharSpriteR.material.color = randomColorListArray[tempNumInt];
-
+        Color.Lerp(randomColorListArray[tempNumInt], Color.white, 1.0f);
         //old method
         // int tempIntR = Random.Range(0, 256);
         // int tempIntG = Random.Range(0, 256);
