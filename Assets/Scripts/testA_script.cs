@@ -32,6 +32,7 @@ public class testA_script : MonoBehaviour
     private bool charFacingRight = true;
     private bool charDanceAnim1Bool = false;
     private bool charDanceAnim2Bool = false;
+    private bool charSpecialAnim1Bool = false;
 
     private Color [] randomColorListArray = {Color.red, Color.blue, Color.cyan, Color.gray, Color.green, Color.grey, Color.magenta, Color.red, Color.white, Color.yellow};
 
@@ -163,6 +164,8 @@ public class testA_script : MonoBehaviour
         charStatusDescision = Random.Range(0, 10); //0, 1, 2, 3, 4 5 6 7 8 9
         charDanceAnim1Bool = false;
         charDanceAnim2Bool = false;
+        charSpecialAnim1Bool = false;
+
         // MOVE
         if(charStatusDescision >= 0 && charStatusDescision <= 2)
         {
@@ -234,9 +237,8 @@ public class testA_script : MonoBehaviour
                     charDanceAnim2Bool = true;
                     break;
                 case 2:
-                    // legendary only action WIP
-                    // thisCharRB.velocity = new Vector2(0, 0);
-                    // charDanceAnim2Bool = true;
+                    thisCharRB.velocity = new Vector2(0, 0);
+                    charSpecialAnim1Bool = true;
                     break;    
                 default:
                     break;
@@ -252,6 +254,7 @@ public class testA_script : MonoBehaviour
         thisCharAnim.SetFloat("charMoveMagnitude", thisCharRB.velocity.magnitude);
         thisCharAnim.SetBool("charDanceAnim1", charDanceAnim1Bool);
         thisCharAnim.SetBool("charDanceAnim2", charDanceAnim2Bool);
+        thisCharAnim.SetBool("charSpecialAnim1", charSpecialAnim1Bool);
         //thisCharAnim.SetBool("charDanceAnim3", charDanceAnim3Bool); WIP legendary
     }
 

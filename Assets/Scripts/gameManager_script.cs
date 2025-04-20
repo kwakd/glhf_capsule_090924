@@ -102,7 +102,7 @@ public class gameManager_script : MonoBehaviour
         int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
 
         GameObject tempChar;
-        int tempInt = Random.Range(0, 2); //0, 1
+        int tempInt = Random.Range(1, 2); //0, 1
 
         //epic
         if(tempInt == 0)
