@@ -682,6 +682,7 @@ MonoBehaviour:
   - {fileID: 2221958309131308856, guid: b9e2eecbd07458649b351c89f1a898a8, type: 3}
   totalLegendaryCharList:
   - {fileID: 2221958309131308856, guid: cfb84a9564b0bf1409ec1813dfa6b34d, type: 3}
+  - {fileID: 2221958309131308856, guid: 37c8b7b5879da144eb407974946c7433, type: 3}
 --- !u!4 &426077130
 Transform:
   m_ObjectHideFlags: 0

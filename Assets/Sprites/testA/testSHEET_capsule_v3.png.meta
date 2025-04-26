@@ -865,6 +865,279 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_3
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 533
+        width: 95
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f93d76ac15920948b40ad8fe80d6564
+      internalID: -609962935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_4
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 528
+        width: 96
+        height: 119
+      alignment: 9
+      pivot: {x: 0.4, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40629c0598222424eadaa09d50e55cd2
+      internalID: -561972513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_5
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 529
+        width: 100
+        height: 122
+      alignment: 9
+      pivot: {x: 0.4, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595de4829c53a624f8210e376df840d6
+      internalID: 921059594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_6
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 34
+        width: 148
+        height: 180
+      alignment: 9
+      pivot: {x: 0.4, y: 0.275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af2576ed900ee341a00479a3a6760b4
+      internalID: 2028163308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_7
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 36
+        width: 158
+        height: 193
+      alignment: 9
+      pivot: {x: 0.5, y: 0.275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa0b56b685853bc45b9285c2a5373a64
+      internalID: -2009579433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_8
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 408
+        width: 87
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420797c2c15f47845bafbe5696b1de63
+      internalID: 1938659054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_9
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 424
+        width: 133
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71d3b1bf2a8a7d4f8b3824d47b4704a
+      internalID: 269614184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_10
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 425
+        width: 146
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0464f5a6649b9449a6b13ed7ac766a
+      internalID: -352029252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_11
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 430
+        width: 97
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ece89c20cf551458646c6c0d955b8a
+      internalID: -401155750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_12
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 435
+        width: 134
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbbda32fd3cb8848acd2ba490481cb3
+      internalID: 1196580630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_13
+      rect:
+        serializedVersion: 2
+        x: 1741
+        y: 436
+        width: 147
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65330622e7828624289b8ac01ee46f6a
+      internalID: 837996311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_14
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 277
+        width: 116
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3534342157c6e364d8967c707232c198
+      internalID: 1970324437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testSHEET_capsule_v3_15
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 277
+        width: 116
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51bb40a1aa9636e40a14a5e1f2b5f3ed
+      internalID: 1455409429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
