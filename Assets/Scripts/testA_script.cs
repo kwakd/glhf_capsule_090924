@@ -5,9 +5,7 @@ using TMPro;
 
 public class testA_script : MonoBehaviour
 {
-    [SerializeField] passiveMoneyTimer_script passiveMoneyTimerBar;
-
-
+    [SerializeField] public passiveMoneyTimer_script passiveMoneyTimerBar;
 
     public string charName;
     public int charPassiveMoney;
@@ -84,7 +82,7 @@ public class testA_script : MonoBehaviour
             
             // Choose a movement direction, or stay in place
             ChooseMoveDirection();
-            
+            CharAnimate();
         }
         
         // characters passive money income to the player
@@ -101,7 +99,7 @@ public class testA_script : MonoBehaviour
             passiveMoneyTimeCount = (float)passiveMoneyTimeCountOriginal;
         }
 
-        CharAnimate();
+        
 
         // if(sendPassiveMoneyTextUp)
         // {
@@ -254,7 +252,10 @@ public class testA_script : MonoBehaviour
         thisCharAnim.SetFloat("charMoveMagnitude", thisCharRB.velocity.magnitude);
         thisCharAnim.SetBool("charDanceAnim1", charDanceAnim1Bool);
         thisCharAnim.SetBool("charDanceAnim2", charDanceAnim2Bool);
-        thisCharAnim.SetBool("charSpecialAnim1", charSpecialAnim1Bool);
+        if(this.tag == "legendaryTier")
+        {
+            thisCharAnim.SetBool("charSpecialAnim1", charSpecialAnim1Bool);
+        }
         //thisCharAnim.SetBool("charDanceAnim3", charDanceAnim3Bool); WIP legendary
     }
 
@@ -277,9 +278,6 @@ public class testA_script : MonoBehaviour
         int tempNumInt = Random.Range(0,101);
         charName = "character" + tempNumInt.ToString();
     }
-
-    
-
 
 
     void FlipSprite()

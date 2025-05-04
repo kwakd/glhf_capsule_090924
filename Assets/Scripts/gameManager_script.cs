@@ -11,7 +11,8 @@ public class gameManager_script : MonoBehaviour
     public TextMeshProUGUI playerTotalMoneyText;
 
     public bool sellMenuToggle;
-    public bool isPlayerTypingName = false; 
+    public bool isPlayerTypingName = false;
+    public bool playerPassiveBarToggle = false; 
 
     public GameObject testCharA;
     public GameObject sellMenu;
@@ -20,6 +21,7 @@ public class gameManager_script : MonoBehaviour
     //public GameObject tempChar;
 
     public List<GameObject> totalCharList = new List<GameObject>();
+    public List<GameObject> totalUncommonCharList = new List<GameObject>();
     public List<GameObject> totalEpicCharList = new List<GameObject>();
     public List<GameObject> totalLegendaryCharList = new List<GameObject>();
 
@@ -51,6 +53,28 @@ public class gameManager_script : MonoBehaviour
             DevSpawnChar();
         }
 
+        //activate or disable slider
+        if(Input.GetKeyDown(KeyCode.A) && !sellMenuToggle)
+        {
+            if(!playerPassiveBarToggle)
+            {
+                for(int i=0; i<totalCharList.Count; i++)
+                {
+                    totalCharList[i].GetComponent<testA_script>().passiveMoneyTimerBar.DisableSelfSlider();
+                }
+                playerPassiveBarToggle = true;
+            }
+            else
+            {
+                for(int i=0; i<totalCharList.Count; i++)
+                {
+                    totalCharList[i].GetComponent<testA_script>().passiveMoneyTimerBar.ActivateSelfSlider();
+                }
+                playerPassiveBarToggle = false;
+            }
+        }
+
+
         if(Input.GetKeyDown(KeyCode.P) && !isPlayerTypingName)
         {
             PauseMenuToggle();
@@ -75,8 +99,8 @@ public class gameManager_script : MonoBehaviour
         //uncommon
         else if(tempInt > 45 && tempInt <= 78)
         {
-            Debug.Log("WIP SHOULD HAVE SPAWNNED UNCOMMON");
-            tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
+            int temptempInt = Random.Range(0,totalUncommonCharList.Count);
+            tempChar = Instantiate(totalUncommonCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalUncommonCharList[temptempInt].transform.rotation);
             totalCharList.Add(tempChar);
         }
         //epic

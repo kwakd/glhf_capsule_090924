@@ -224,7 +224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -512}
+  m_AnchoredPosition: {x: -100, y: -492}
   m_SizeDelta: {x: 200, y: 148.3774}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69126763
@@ -261,7 +261,9 @@ MonoBehaviour:
     Z = Camera Zoom
 
     I = Change
-    CharA name (menu)'
+    CharA name (menu)
+
+    A = toggle passive timer bar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -675,14 +677,31 @@ MonoBehaviour:
   playerTotalMoneyText: {fileID: 410110892}
   sellMenuToggle: 0
   isPlayerTypingName: 0
+  playerPassiveBarToggle: 0
   testCharA: {fileID: 2221958309131308856, guid: fcd30ccb3c14f6f4aabfde8fe68a813f, type: 3}
   sellMenu: {fileID: 1436591300}
   totalCharList: []
+  totalUncommonCharList:
+  - {fileID: 2221958309131308856, guid: fa8282e832df71146b83b933b5d66d03, type: 3}
+  - {fileID: 2221958309131308856, guid: d338822f9b46eb2468d4aaf1bd26a2ca, type: 3}
+  - {fileID: 2221958309131308856, guid: 49097dd366fef8b4db7c7b29148878ed, type: 3}
+  - {fileID: 2221958309131308856, guid: e7dcad79eeebd96448bcf3bd59e5d821, type: 3}
+  - {fileID: 2221958309131308856, guid: 93ac3e52b50c5cd46a4e6fc897a3d153, type: 3}
+  - {fileID: 2221958309131308856, guid: ee2c2bf7d1209214c85eb67cf1044baa, type: 3}
+  - {fileID: 2221958309131308856, guid: ed4c20d426e984a44b0a2ab40a868d90, type: 3}
+  - {fileID: 2221958309131308856, guid: 34219c244207fa444b4b564e613a1386, type: 3}
+  - {fileID: 2221958309131308856, guid: 006dc286c982e824d892be5481e468ff, type: 3}
+  - {fileID: 2221958309131308856, guid: 6e0d3e1cc734f4040af4ca0353eb1947, type: 3}
   totalEpicCharList:
   - {fileID: 2221958309131308856, guid: b9e2eecbd07458649b351c89f1a898a8, type: 3}
+  - {fileID: 2221958309131308856, guid: fe927b10877ca01428fb310762ff8ea2, type: 3}
+  - {fileID: 2221958309131308856, guid: 08c4d4ad6d3c6ed4facc21631ee07235, type: 3}
+  - {fileID: 2221958309131308856, guid: 918f838487beacd4288b5e6c3600c2c7, type: 3}
+  - {fileID: 2221958309131308856, guid: 7a92a7e608d013f4da7ba8963492d350, type: 3}
   totalLegendaryCharList:
   - {fileID: 2221958309131308856, guid: cfb84a9564b0bf1409ec1813dfa6b34d, type: 3}
   - {fileID: 2221958309131308856, guid: 37c8b7b5879da144eb407974946c7433, type: 3}
+  - {fileID: 2221958309131308856, guid: 3192b3e1f87a35f41878420ff40ada78, type: 3}
 --- !u!4 &426077130
 Transform:
   m_ObjectHideFlags: 0

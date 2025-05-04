@@ -51,8 +51,8 @@ GameObject:
   - component: {fileID: 5709645205537826980}
   - component: {fileID: 2305138297892573153}
   m_Layer: 9
-  m_Name: testS_CHAO
-  m_TagString: legendaryTier
+  m_Name: testD_CHAO
+  m_TagString: epicTier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
