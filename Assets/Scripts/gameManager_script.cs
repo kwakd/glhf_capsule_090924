@@ -13,6 +13,7 @@ public class gameManager_script : MonoBehaviour
     public bool sellMenuToggle;
     public bool isPlayerTypingName = false;
     public bool playerPassiveBarToggle = false; 
+    public bool isPurchaseAnimPlaying = false;
 
     public GameObject testCharA;
     public GameObject sellMenu;
@@ -25,25 +26,30 @@ public class gameManager_script : MonoBehaviour
     public List<GameObject> totalEpicCharList = new List<GameObject>();
     public List<GameObject> totalLegendaryCharList = new List<GameObject>();
 
+    private Animator thisGameManagerScript_Animator;
+
     void Start()
     {
         Instance = this;
         sellMenu.SetActive(false);
         sellMenuToggle = false;
+
+        thisGameManagerScript_Animator = GetComponent<Animator>();
+        thisGameManagerScript_Animator.enabled = false;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W) && !sellMenuToggle && playerTotalMoney >= 100)
+        if(Input.GetKeyDown(KeyCode.W) && !sellMenuToggle && playerTotalMoney >= 100 && !isPurchaseAnimPlaying)
         {
             playerTotalMoney -= 100;
             SpawnChar();
         }
 
         // devkey to spawn unit
-        if(Input.GetKeyDown(KeyCode.Q) && !sellMenuToggle)
+        if(Input.GetKeyDown(KeyCode.Q) && !sellMenuToggle && !isPurchaseAnimPlaying)
         {
             SpawnChar();
         }
@@ -51,6 +57,11 @@ public class gameManager_script : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && !sellMenuToggle)
         {
             DevSpawnChar();
+        }
+        //devkey to spawn common/uncommon
+        if(Input.GetKeyDown(KeyCode.L) && !sellMenuToggle)
+        {
+            DevSpawnCharCommon();
         }
 
         //activate or disable slider
@@ -93,31 +104,92 @@ public class gameManager_script : MonoBehaviour
         //common
         if(tempInt >= 0 && tempInt <= 45)
         {
-            tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
-            totalCharList.Add(tempChar);
+            GetComponent<SpriteRenderer>().enabled = true;
+            thisGameManagerScript_Animator.enabled = true;
+            isPurchaseAnimPlaying = true;
+            thisGameManagerScript_Animator.Play("PurchaseAnimation_Common");
         }
         //uncommon
         else if(tempInt > 45 && tempInt <= 78)
         {
-            int temptempInt = Random.Range(0,totalUncommonCharList.Count);
-            tempChar = Instantiate(totalUncommonCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalUncommonCharList[temptempInt].transform.rotation);
-            totalCharList.Add(tempChar);
+            GetComponent<SpriteRenderer>().enabled = true;
+            thisGameManagerScript_Animator.enabled = true;
+            isPurchaseAnimPlaying = true;
+            thisGameManagerScript_Animator.Play("PurchaseAnimation_Uncommon");
         }
         //epic
         else if(tempInt > 78 && tempInt <= 98)
         {
-            int temptempInt = Random.Range(0,totalEpicCharList.Count);
-            tempChar = Instantiate(totalEpicCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalEpicCharList[temptempInt].transform.rotation);
-            totalCharList.Add(tempChar);
+            GetComponent<SpriteRenderer>().enabled = true;
+            thisGameManagerScript_Animator.enabled = true;
+            isPurchaseAnimPlaying = true;
+            thisGameManagerScript_Animator.Play("PurchaseAnimation_Epic");
         }
         //legendary
         else if(tempInt > 98 && tempInt <= 100)
         {
-            int temptempInt = Random.Range(0,totalLegendaryCharList.Count);
-            tempChar = Instantiate(totalLegendaryCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalLegendaryCharList[temptempInt].transform.rotation);
-            totalCharList.Add(tempChar);
+            GetComponent<SpriteRenderer>().enabled = true;
+            thisGameManagerScript_Animator.enabled = true;
+            isPurchaseAnimPlaying = true;
+            thisGameManagerScript_Animator.Play("PurchaseAnimation_Legendary");
         }
+    }
 
+    public void SpawnCharCommon()
+    {
+        int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
+        int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
+
+        GameObject tempChar;
+
+        //Debug.Log("test Common");
+        tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
+        totalCharList.Add(tempChar);
+        GetComponent<SpriteRenderer>().enabled = false;
+        thisGameManagerScript_Animator.enabled = false;
+        isPurchaseAnimPlaying = false;
+    }
+    public void SpawnCharUncommon()
+    {
+        int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
+        int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
+
+        GameObject tempChar;
+
+        int temptempInt = Random.Range(0,totalUncommonCharList.Count);
+        tempChar = Instantiate(totalUncommonCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalUncommonCharList[temptempInt].transform.rotation);
+        totalCharList.Add(tempChar);
+        GetComponent<SpriteRenderer>().enabled = false;
+        thisGameManagerScript_Animator.enabled = false;
+        isPurchaseAnimPlaying = false;
+    }
+    public void SpawnCharEpic()
+    {
+        int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
+        int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
+
+        GameObject tempChar;
+
+        int temptempInt = Random.Range(0,totalEpicCharList.Count);
+        tempChar = Instantiate(totalEpicCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalEpicCharList[temptempInt].transform.rotation);
+        totalCharList.Add(tempChar);
+        GetComponent<SpriteRenderer>().enabled = false;
+        thisGameManagerScript_Animator.enabled = false;
+        isPurchaseAnimPlaying = false;
+    }
+    public void SpawnCharLegendary()
+    {
+        int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
+        int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
+
+        GameObject tempChar;
+
+        int temptempInt = Random.Range(0,totalLegendaryCharList.Count);
+        tempChar = Instantiate(totalLegendaryCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalLegendaryCharList[temptempInt].transform.rotation);
+        totalCharList.Add(tempChar);
+        GetComponent<SpriteRenderer>().enabled = false;
+        thisGameManagerScript_Animator.enabled = false;
+        isPurchaseAnimPlaying = false;
     }
 
     public void DevSpawnChar()
@@ -126,7 +198,7 @@ public class gameManager_script : MonoBehaviour
         int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
 
         GameObject tempChar;
-        int tempInt = Random.Range(1, 2); //0, 1
+        int tempInt = Random.Range(0, 2); //0, 1
 
         //epic
         if(tempInt == 0)
@@ -140,6 +212,29 @@ public class gameManager_script : MonoBehaviour
         {
             int temptempInt = Random.Range(0,totalLegendaryCharList.Count);
             tempChar = Instantiate(totalLegendaryCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalLegendaryCharList[temptempInt].transform.rotation);
+            totalCharList.Add(tempChar);
+        }
+    }
+
+    public void DevSpawnCharCommon()
+    {
+        int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
+        int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
+
+        GameObject tempChar;
+        int tempInt = Random.Range(0, 1); //0, 1
+
+        //Common
+        if(tempInt == 0)
+        {
+            tempChar = Instantiate(testCharA, new Vector3(testSpawnLocationX, testSpawnLocationY, 0), testCharA.transform.rotation);
+            totalCharList.Add(tempChar);
+        }
+        //Uncommon
+        else
+        {
+            int temptempInt = Random.Range(0,totalUncommonCharList.Count);
+            tempChar = Instantiate(totalUncommonCharList[temptempInt], new Vector3(testSpawnLocationX, testSpawnLocationY, 0), totalUncommonCharList[temptempInt].transform.rotation);
             totalCharList.Add(tempChar);
         }
 

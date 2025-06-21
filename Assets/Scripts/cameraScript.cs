@@ -77,7 +77,7 @@ public class cameraScript : MonoBehaviour
 
     public void ZoomCameraToggle()
     {
-        if(virtualCameraZoomFloat > 3.5)
+        if(virtualCameraZoomFloat > 1.5f)
         {
             virtualCameraZoomFloat -= 1.0f;
         }

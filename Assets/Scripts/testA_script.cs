@@ -24,7 +24,7 @@ public class testA_script : MonoBehaviour
     private Vector2 passiveMoneyTime = new Vector2(50, 60); //change to 50,60 only at 5-6 for testing purposes
     private Vector2 charLastMoveDirection;
     private float decisionTimeCount;
-    private float passiveMoneyTimeCount;
+    public float passiveMoneyTimeCount;
     private int charStatusDescision;
     private int charStatusDescisionSpecial;
     private bool charFacingRight = true;
@@ -33,6 +33,14 @@ public class testA_script : MonoBehaviour
     private bool charSpecialAnim1Bool = false;
 
     private Color [] randomColorListArray = {Color.red, Color.blue, Color.cyan, Color.gray, Color.green, Color.grey, Color.magenta, Color.red, Color.white, Color.yellow};
+
+    // void Awake()
+    // {
+    //     if(this.tag == "commonTier" || this.tag == "uncommonTier" || this.tag == "epicTier")
+    //     {
+    //         saveSystem_script.testCharAlist.Add(this);
+    //     }
+    // }
 
     // Start is called before the first frame update
     void Start()
