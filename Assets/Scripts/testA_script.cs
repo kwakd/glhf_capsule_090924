@@ -52,11 +52,18 @@ public class testA_script : MonoBehaviour
         passiveMoneyTimerBar = GetComponentInChildren<passiveMoneyTimer_script>();
         charPassiveMoneyText = GetComponentInChildren<TextMeshProUGUI>();
         passiveMoneyTextUpAnimationUp = GetComponentInChildren<passiveMoneyTextUpAnimation_script>();
+        if(this.tag == "goalTier")
+        {
+            passiveMoneyTimeCount = 1;
+        }
+        else
+        {
+            passiveMoneyTimeCount = Random.Range(passiveMoneyTime.x, passiveMoneyTime.y);
+        }
 
-        decisionTimeCount = Random.Range(charDecisionTime.x, charDecisionTime.y);
-        passiveMoneyTimeCount = Random.Range(passiveMoneyTime.x, passiveMoneyTime.y);
+        
         passiveMoneyTimeCountOriginal = (int)passiveMoneyTimeCount;
-
+        decisionTimeCount = Random.Range(charDecisionTime.x, charDecisionTime.y);
         AutoGenerateStats();
         //decisionTimeCount = Random.Range(charDecisionTime.x, charDecisionTime.y);
 
@@ -159,6 +166,10 @@ public class testA_script : MonoBehaviour
         {
             charPassiveMoneyIntRandomNumChecker = Random.Range(100, 201);
             charPassiveMoney = charPassiveMoneyIntRandomNumChecker + passiveMoneyTimeCountOriginal;
+        }
+        else if(this.tag == "goalTier")
+        {
+            charPassiveMoney = 1000;
         }
 
     }

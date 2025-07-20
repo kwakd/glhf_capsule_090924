@@ -8,6 +8,7 @@ TagManager:
   - uncommonTier
   - epicTier
   - legendaryTier
+  - goalTier
   layers:
   - Default
   - TransparentFX

@@ -85,7 +85,7 @@ public class NsellMenu_script : MonoBehaviour
             userNumToTotalNum.text = totalNum.ToString() + "/" + gameManager_script.Instance.totalCharList.Count.ToString();
 
             // sells the unit
-            if(Input.GetKeyDown(KeyCode.O) && gameManager_script.Instance.sellMenuToggle && totalNum > 0 && gameManager_script.Instance.isPlayerTypingName == false)
+            if(Input.GetKeyDown(KeyCode.O) && gameManager_script.Instance.sellMenuToggle && totalNum > 0 && gameManager_script.Instance.isPlayerTypingName == false && gameManager_script.Instance.totalCharList[userNum-1+(numPage*5)].GetComponent<testA_script>().tag != "goalTier")
             {
                 Destroy(transform.GetChild(userNum).gameObject);
                 gameManager_script.Instance.totalCharList[userNum-1+(numPage*5)].GetComponent<testA_script>().DeleteCharacterA();

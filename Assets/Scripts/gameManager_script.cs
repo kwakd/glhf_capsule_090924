@@ -10,12 +10,17 @@ public class gameManager_script : MonoBehaviour
     public int playerTotalMoney;
     public TextMeshProUGUI playerTotalMoneyText;
 
+    public TextMeshProUGUI normalMenuText;
+    public TextMeshProUGUI sellMenuText;
+
     public bool sellMenuToggle;
     public bool isPlayerTypingName = false;
     public bool playerPassiveBarToggle = false; 
     public bool isPurchaseAnimPlaying = false;
+    public bool kingPurchased = false;
 
     public GameObject testCharA;
+    public GameObject goalCharA;
     public GameObject sellMenu;
 
     
@@ -36,6 +41,8 @@ public class gameManager_script : MonoBehaviour
 
         thisGameManagerScript_Animator = GetComponent<Animator>();
         thisGameManagerScript_Animator.enabled = false;
+        sellMenuText.enabled = false;
+        playerTotalMoney = 500;
     }
 
 
@@ -46,6 +53,12 @@ public class gameManager_script : MonoBehaviour
         {
             playerTotalMoney -= 100;
             SpawnChar();
+        }
+        if(Input.GetKeyDown(KeyCode.S) && !sellMenuToggle && playerTotalMoney >= 1000 && !isPurchaseAnimPlaying && kingPurchased != true)
+        {
+            playerTotalMoney -= 1000;
+            kingPurchased = true;
+            SpawnCharGoal();
         }
 
         // devkey to spawn unit
@@ -85,11 +98,13 @@ public class gameManager_script : MonoBehaviour
             }
         }
 
-
+        // open Menu
         if(Input.GetKeyDown(KeyCode.P) && !isPlayerTypingName)
         {
             PauseMenuToggle();
         }
+
+
 
         playerTotalMoneyText.text = "$" + playerTotalMoney.ToString();
     }
@@ -99,7 +114,7 @@ public class gameManager_script : MonoBehaviour
         int testSpawnLocationX = Mathf.FloorToInt(Random.Range(-4f, 4.5f));
         int testSpawnLocationY = Mathf.FloorToInt(Random.Range(-2.5f, 3f));
 
-        GameObject tempChar;
+       // GameObject tempChar;
         int tempInt = Random.Range(0, 101);
         //common
         if(tempInt >= 0 && tempInt <= 45)
@@ -191,6 +206,14 @@ public class gameManager_script : MonoBehaviour
         thisGameManagerScript_Animator.enabled = false;
         isPurchaseAnimPlaying = false;
     }
+    public void SpawnCharGoal()
+    {
+        GameObject tempChar;
+        tempChar = Instantiate(goalCharA, new Vector3(0, 0, 0), transform.rotation);
+        tempChar.transform.localScale = new Vector3(2, 2, 2);
+        // if i want to add the KING to the list
+        //totalCharList.Add(tempChar);
+    }
 
     public void DevSpawnChar()
     {
@@ -245,11 +268,15 @@ public class gameManager_script : MonoBehaviour
         if(!sellMenuToggle)
         {
             sellMenu.SetActive(true);
+            normalMenuText.enabled = false;
+            sellMenuText.enabled = true;
             sellMenuToggle = true;
         }
         else
         {
             sellMenu.SetActive(false);
+            normalMenuText.enabled = true;
+            sellMenuText.enabled = false;
             sellMenuToggle = false;
         }
     }
